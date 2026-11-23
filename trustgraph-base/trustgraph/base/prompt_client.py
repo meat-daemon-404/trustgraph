@@ -199,6 +199,16 @@ class PromptClient:
             timeout = timeout,
         )
 
+    async def query_formulate(self, question, schema, timeout=None):
+        return await self.prompt(
+            id = "query-formulate",
+            variables = {
+                "question": question,
+                "schema": schema,
+            },
+            timeout = timeout,
+        )
+
 class PromptClientSpec(RequestResponseSpec):
 
     timeout_param = "prompt_timeout"
